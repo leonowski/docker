@@ -3,11 +3,21 @@ FROM phusion/baseimage
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
 
-run apt-get update && apt-get install -y gdebi-core usbutils && apt-get clean -y
-add homegenie-beta_1.1.r515_all.deb /tmp/
-run gdebi --non-interactive /tmp/homegenie-beta_1.1.r515_all.deb 
-run mkdir /etc/service/homegenie
-add homegenie.runit /etc/service/homegenie/run
+RUN apt-get update && apt-get install -y gdebi-core usbutils && apt-get clean -y
+
+ADD http://downloads.sourceforge.net/project/homegenie/homegenie-beta_1.1.r515_all.deb /tmp/
+
+RUN gdebi --non-interactive /tmp/homegenie-beta_1.1.r515_all.deb 
+
+RUN mkdir /etc/service/homegenie
+
+ADD homegenie.runit /etc/service/homegenie/run
+
+RUN chmod +x /etc/service/homegenie/run
 
 # cleanup
-run rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+EXPOSE 80
+
+VOLUME /usr/local/bin/homegenie
