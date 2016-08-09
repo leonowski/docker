@@ -5,9 +5,9 @@ CMD ["/sbin/my_init"]
 
 RUN apt-get update && apt-get install -y gdebi-core usbutils && apt-get clean -y
 
-ADD http://downloads.sourceforge.net/project/homegenie/homegenie-beta_1.1.r519_all.deb /tmp/
+ADD http://downloads.sourceforge.net/project/homegenie/homegenie-beta_1.1.r525_all.deb /tmp/
 
-RUN gdebi --non-interactive /tmp/homegenie-beta_1.1.r519_all.deb 
+RUN gdebi --non-interactive /tmp/homegenie-beta_1.1.r525_all.deb 
 
 RUN mkdir /etc/service/homegenie
 
