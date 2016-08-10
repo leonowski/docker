@@ -3,7 +3,7 @@ FROM phusion/baseimage
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
 
-RUN apt-get purge lirc -y
+RUN apt-get purge -y lirc
 
 RUN apt-get update && apt-get install -y gdebi-core usbutils && apt-get clean -y
 
