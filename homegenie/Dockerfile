@@ -3,9 +3,9 @@ FROM phusion/baseimage
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
 
-RUN apt-get purge -y lirc
-
 RUN apt-get update && apt-get install -y gdebi-core usbutils && apt-get clean -y
+
+RUN apt-get remove -y lirc
 
 ADD http://downloads.sourceforge.net/project/homegenie/homegenie-beta_1.1.r525_all.deb /tmp/
 
