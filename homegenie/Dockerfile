@@ -3,6 +3,9 @@ FROM phusion/baseimage
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
 
+ENV DEBIAN_FRONTEND="noninteractive" \
+    TERM="xterm"
+
 RUN apt-get update && apt-get install -y --no-install-recommends gdebi-core usbutils ca-certificates-mono && apt-get clean -y
 
 ADD homegenie-beta_1.1.r525_all.deb /tmp/
