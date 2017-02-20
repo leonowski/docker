@@ -8,9 +8,9 @@ ENV DEBIAN_FRONTEND="noninteractive" \
 
 RUN apt-get update && apt-get install -y --no-install-recommends gdebi-core usbutils ca-certificates-mono && apt-get clean -y
 
-ADD homegenie-beta_1.1.r525_all.deb /tmp/
+ADD homegenie-beta_1.1.r526_all.deb /tmp/
 
-RUN gdebi --non-interactive /tmp/homegenie-beta_1.1.r525_all.deb 
+RUN gdebi --non-interactive /tmp/homegenie-beta_1.1.r526_all.deb 
 
 RUN mkdir /etc/service/homegenie
 
