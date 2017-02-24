@@ -1,7 +1,5 @@
 FROM phusion/baseimage:0.9.18
 
-MAINTAINER aptalca
-
 VOLUME ["/config"]
 
 RUN export DEBCONF_NONINTERACTIVE_SEEN=true DEBIAN_FRONTEND=noninteractive && \
