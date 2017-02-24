@@ -14,10 +14,12 @@ RUN gdebi --non-interactive /tmp/homegenie-beta_1.1.r526_all.deb
 
 #RUN mkdir /etc/service/homegenie
 
-ADD homegenie.runit /usr/local/bin/run
+ADD homegenie.runit /usr/local/bin/run.sh
 
 #RUN chmod +x /etc/service/homegenie/run
 RUN chmod -R 777 /usr/local/bin/homegenie
+RUN chmod +x /usr/local/bin/run.sh
+CMD ["/usr/local/bin/run.sh"]
 
 # cleanup
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
