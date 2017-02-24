@@ -1,21 +1,10 @@
 #!/bin/bash
 
-usermod -u 99 nobody && \
-usermod -g 100 nobody && \
-mkdir -p /etc/my_init.d
-mkdir -p /config
-
 #Get docker env timezone and set system timezone
-
-apk update
-apk upgrade
-apk add ca-certificates && update-ca-certificates
-# Change TimeZone
-apk add --update tzdata
-ENV tz=america/los_angeles
-
-
-
+echo "setting the correct local time"
+echo $TZ > /etc/timezone
+export DEBCONF_NONINTERACTIVE_SEEN=true DEBIAN_FRONTEND=noninteractive
+dpkg-reconfigure tzdata
 cd /config
 if [ ! -z $VERSION ]; then
   echo "Manual version override:" $VERSION
