@@ -4,9 +4,6 @@ MAINTAINER leonowski
 
 VOLUME ["/config"]
 
-wget \
-oracle-java8-installer \
-oracle-java8-set-default && \
 usermod -u 99 nobody && \
 usermod -g 100 nobody && \
 mkdir -p /etc/my_init.d
