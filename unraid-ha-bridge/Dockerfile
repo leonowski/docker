@@ -4,9 +4,6 @@ MAINTAINER leonowski
 
 VOLUME ["/config"]
 
-usermod -u 99 nobody && \
-usermod -g 100 nobody && \
-mkdir -p /etc/my_init.d
 
 COPY firstrun.sh /etc/my_init.d/firstrun.sh
 
