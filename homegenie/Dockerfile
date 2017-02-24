@@ -1,10 +1,10 @@
-FROM phusion/baseimage
+FROM mono:latest
 
 # Use baseimage-docker's init system.
-CMD ["/sbin/my_init"]
+#CMD ["/sbin/my_init"]
 
-ENV DEBIAN_FRONTEND="noninteractive" \
-    TERM="xterm"
+#ENV DEBIAN_FRONTEND="noninteractive" \
+#    TERM="xterm"
 
 RUN apt-get update && apt-get install -y --no-install-recommends gdebi-core usbutils ca-certificates-mono && apt-get clean -y
 
@@ -23,4 +23,4 @@ RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 EXPOSE 80
 
-VOLUME /usr/local/bin/homegenie
+#VOLUME /usr/local/bin/homegenie
