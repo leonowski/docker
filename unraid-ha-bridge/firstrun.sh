@@ -3,6 +3,7 @@
 usermod -u 99 nobody && \
 usermod -g 100 nobody && \
 mkdir -p /etc/my_init.d
+mkdir -p /config
 
 #Get docker env timezone and set system timezone
 
