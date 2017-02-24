@@ -1,12 +1,16 @@
 #!/bin/bash
 
+usermod -u 99 nobody && \
+usermod -g 100 nobody && \
+mkdir -p /etc/my_init.d
+
 #Get docker env timezone and set system timezone
 
-RUN apk update
-RUN apk upgrade
-RUN apk add ca-certificates && update-ca-certificates
+apk update
+apk upgrade
+apk add ca-certificates && update-ca-certificates
 # Change TimeZone
-RUN apk add --update tzdata
+apk add --update tzdata
 ENV tz=america/los_angeles
 
 
